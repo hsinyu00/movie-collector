@@ -24,15 +24,16 @@
       <nav>
         <p v-if="loginUser"> {{ loginUser.name }} 的電影間</p>
         <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/topic">Topic</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/Signup">Sign up</RouterLink>
-        <RouterLink to="/Login" v-show="!loginUser">Log in</RouterLink>
+        <RouterLink to="/signup">Sign up</RouterLink>
+        <RouterLink to="/login" v-show="!loginUser">Log in</RouterLink>
         <a @click="logout">Logout</a>
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  
 </template>
  
 <style scoped>
