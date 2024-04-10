@@ -22,11 +22,11 @@
 
     <div class="wrapper">
       <nav>
-        <p> {{loginUser.name}} 的電影間</p>
+        <p v-if="loginUser"> {{ loginUser.name }} 的電影間</p>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/Signup">Sign up</RouterLink>
-        <RouterLink to="/Signin">Sign in</RouterLink>
+        <RouterLink to="/Login" v-show="!loginUser">Log in</RouterLink>
         <a @click="logout">Logout</a>
       </nav>
     </div>
