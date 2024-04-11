@@ -8,7 +8,40 @@
     </form>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+import axios from 'axios'
+
+const router = useRouter()
+let email = ref('')
+let password = ref('')
+
+function login() {
+    axios.get("http://localhost:8000/user")
+        .then((res) => {
+            let foundUser = res.data.filter((user) => user.email === email.value && user.password === password.value);
+            // console.log(foundUser);
+            if(foundUser.length === 1) {
+                alert("登入成功");
+                localStorage.setItem("login-user", JSON.stringify({
+                    "name": foundUser[0].name,
+                    "email": foundUser[0].email
+                }))
+                router.push({ path: '/' });
+            }
+            else {
+                alert("登入失敗");
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            alert("有error");
+        });
+    }
+</script>
+
+<!-- <script>
 import axios from 'axios'
 
 export default {
@@ -27,7 +60,7 @@ export default {
                 let foundUser = res.data.filter((user) => user.email === this.email && user.password === this.password);
                 // console.log(foundUser);
                 if(foundUser.length === 1) {
-                    alert("登入成功");
+                    // alert("登入成功");
                     localStorage.setItem("login-user", JSON.stringify({
                         "name": foundUser[0].name,
                         "email": foundUser[0].email
@@ -45,4 +78,4 @@ export default {
         }
     }
 }
-</script>
+</script> -->

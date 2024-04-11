@@ -1,6 +1,17 @@
-<script>
-//   const loginUser = JSON.parse(localStorage.getItem('login-user')); 
+<script setup>
+import { ref } from 'vue'
 
+let loginUser = ref({})
+loginUser = ref(JSON.parse(localStorage.getItem('login-user')))
+
+function logout() {
+  loginUser.value.name = ''
+  loginUser.value.email = ''
+  localStorage.removeItem("login-user")
+}
+</script>
+
+<!-- <script>
   export default {
     data() {
         return {
@@ -14,7 +25,7 @@
         }
     }
   }
-</script>
+</script> -->
 
 <template>
   <header>
@@ -22,13 +33,13 @@
 
     <div class="wrapper">
       <nav>
-        <p v-if="loginUser"> {{ loginUser.name }} 的電影間</p>
+        <p v-if="loginUser!==null && loginUser.email">{{ loginUser.name }} 的電影間</p>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/topic">Topic</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/signup">Sign up</RouterLink>
-        <RouterLink to="/login" v-show="!loginUser">Log in</RouterLink>
-        <a @click="logout">Logout</a>
+        <RouterLink to="/login"  v-if="loginUser===null">Log in</RouterLink>
+        <a v-if="loginUser!==null && loginUser.email" @click="logout">Logout</a>
       </nav>
     </div>
   </header>
@@ -37,6 +48,10 @@
 </template>
  
 <style scoped>
+[v-cloak] {
+  display: none;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
