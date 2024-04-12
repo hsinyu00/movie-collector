@@ -1,10 +1,16 @@
 <template>
     <div class="list-item">
-        <img src="https://picsum.photos/200" alt="">
-        <h2>Title</h2>
-        <p>2008</p>
+        <img :src="item.imgPath" alt="">
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.year }}</p>
     </div>
 </template>
+
+<script>
+    export default {
+        props: ['item']
+    }
+</script>
 
 <style scoped>
     .list-item {
