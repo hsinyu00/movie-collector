@@ -20,16 +20,19 @@ topicData = ref([
       'category': 'Sci-fi',
       'titles': [
         {
+          id: '09890',
           imgPath: 'https://picsum.photos/200',
           title: 'Back To The Future',
           year: '1986'
         },
         {
+          id: '09kh0',
           imgPath: 'https://picsum.photos/200',
           title: 'Star Wars',
           year: '2008'
         },
         {
+          id: '87657',
           imgPath: 'https://picsum.photos/200',
           title: 'Star trek',
           year: '2010'
@@ -40,16 +43,19 @@ topicData = ref([
       'category': 'Drama',
       'titles': [
         {
+          id: 'uu890',
           imgPath: 'https://picsum.photos/200',
           title: 'The Game',
           year: '1997'
         },
         {
+          id: 'lkhug',
           imgPath: 'https://picsum.photos/200',
           title: 'Oppenheimer',
           year: '2024'
         },
         {
+          id: '09uoi0',
           imgPath: 'https://picsum.photos/200',
           title: 'Tenet',
           year: '2020'
@@ -60,16 +66,19 @@ topicData = ref([
       'category': 'Comedy',
       'titles': [
         {
+          id: '12ytuiu',
           imgPath: 'https://picsum.photos/200',
           title: 'Lala Land',
           year: '2023'
         },
         {
+          id: '97787238',
           imgPath: 'https://picsum.photos/200',
           title: "The King's Man",
           year: '2021'
         },
         {
+          id: 'hsyuyu',
           imgPath: 'https://picsum.photos/200',
           title: 'Eddie the Eagle',
           year: '2016'
