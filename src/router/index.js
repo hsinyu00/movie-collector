@@ -36,8 +36,9 @@ const router = createRouter({
     },
     {
       path: '/title/:id',
+      name: 'Title',
       component: TitleView,
-      props: true
+      props: (route) => route.params
     },
   ]
 })
