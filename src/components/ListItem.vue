@@ -1,9 +1,9 @@
 <template>
-    <router-link :to="{ path: `/title/${props.item.id}`}">
+    <router-link :to="{ path: `/title/${item.id}`}">
         <div class="list-item">
-            <img :src="props.item.imgPath" alt="">
-            <h2>{{ props.item.title }}</h2>
-            <p>{{ props.item.year }}</p>
+            <img :src="item.imgPath" alt="">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.year }}</p>
         </div>
     </router-link>
 </template>
