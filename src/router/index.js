@@ -36,7 +36,8 @@ const router = createRouter({
     },
     {
       path: '/title/:id',
-      component: TitleView
+      component: TitleView,
+      props: true
     },
   ]
 })
