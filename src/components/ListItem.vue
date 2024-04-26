@@ -16,7 +16,7 @@
 
 <script setup>
 const props = defineProps({
-  'item': {
+  item: {
     type: Object,
     required: true
   }

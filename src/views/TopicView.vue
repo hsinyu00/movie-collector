@@ -10,82 +10,28 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import TopicList from '../components/TopicList.vue'
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
+
 import ListItem from '../components/ListItem.vue'
 
-let topicData = ref({})
-topicData = ref([
-    {
-      'category': 'Sci-fi',
-      'titles': [
-        {
-          id: '09890',
-          imgPath: 'https://picsum.photos/200',
-          title: 'Back To The Future',
-          year: '1986'
-        },
-        {
-          id: '09kh0',
-          imgPath: 'https://picsum.photos/200',
-          title: 'Star Wars',
-          year: '2008'
-        },
-        {
-          id: '87657',
-          imgPath: 'https://picsum.photos/200',
-          title: 'Star trek',
-          year: '2010'
-        }
-      ]
-    },
-    {
-      'category': 'Drama',
-      'titles': [
-        {
-          id: 'uu890',
-          imgPath: 'https://picsum.photos/200',
-          title: 'The Game',
-          year: '1997'
-        },
-        {
-          id: 'lkhug',
-          imgPath: 'https://picsum.photos/200',
-          title: 'Oppenheimer',
-          year: '2024'
-        },
-        {
-          id: '09uoi0',
-          imgPath: 'https://picsum.photos/200',
-          title: 'Tenet',
-          year: '2020'
-        }
-      ]
-    },
-    {
-      'category': 'Comedy',
-      'titles': [
-        {
-          id: '12ytuiu',
-          imgPath: 'https://picsum.photos/200',
-          title: 'Lala Land',
-          year: '2023'
-        },
-        {
-          id: '97787238',
-          imgPath: 'https://picsum.photos/200',
-          title: "The King's Man",
-          year: '2021'
-        },
-        {
-          id: 'hsyuyu',
-          imgPath: 'https://picsum.photos/200',
-          title: 'Eddie the Eagle',
-          year: '2016'
-        }
-      ]
-    }
-])
+let topicData = ref([]) 
+
+const getTopicData = async () => {
+    axios.get("http://localhost:8000/topicData")
+    .then((res)=>{
+        console.log(res);
+        topicData.value = res.data;
+    })
+    .catch((err)=> {
+        console.log(err);
+    })
+}
+
+onMounted(() => {
+  getTopicData()
+})
+
 </script>
 
 <style scoped>
