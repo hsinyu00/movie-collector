@@ -1,9 +1,19 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 
 // use var = ref() to initiate reactive vars
 let loginUser = ref(JSON.parse(localStorage.getItem('login-user')))
 let showUser = ref(loginUser.value ? true : false)
+
+function updateUserInfo() {
+  loginUser.value = JSON.parse(localStorage.getItem('login-user'))
+  showUser.value = true
+  router.push({ path: '/' });
+  alert("登入成功");
+}
 
 function logout() {
   // use var.value to update reactive vars
@@ -30,7 +40,7 @@ function logout() {
       </nav>
     </div>
   </header>
-  <RouterView />
+  <RouterView @update-user="updateUserInfo"/>
 </template>
 
 <style scoped>

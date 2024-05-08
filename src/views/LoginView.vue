@@ -10,25 +10,23 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router';
 import axios from 'axios'
 
-const router = useRouter()
 let email = ref('')
 let password = ref('')
+
+const emit = defineEmits(['click', 'updateUser']);
 
 function login() {
     axios.get("http://localhost:8000/user")
         .then((res) => {
             let foundUser = res.data.filter((user) => user.email === email.value && user.password === password.value);
-            // console.log(foundUser);
             if(foundUser.length === 1) {
-                alert("登入成功");
                 localStorage.setItem("login-user", JSON.stringify({
                     "name": foundUser[0].name,
                     "email": foundUser[0].email
                 }))
-                router.push({ path: '/' });
+                emit('updateUser')
             }
             else {
                 alert("登入失敗");
@@ -39,7 +37,10 @@ function login() {
             alert("有error");
         });
     }
+
 </script>
+
+
 
 <!-- <script>
 import axios from 'axios'

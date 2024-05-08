@@ -20,7 +20,7 @@ let topicData = ref([])
 const getTopicData = async () => {
     axios.get("http://localhost:8000/topicData")
     .then((res)=>{
-        console.log(res);
+        // console.log(res);
         topicData.value = res.data;
     })
     .catch((err)=> {
