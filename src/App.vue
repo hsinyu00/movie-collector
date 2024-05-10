@@ -6,11 +6,11 @@ const router = useRouter()
 
 // use var = ref() to initiate reactive vars
 let loginUser = ref(JSON.parse(localStorage.getItem('login-user')))
-let showUser = ref(loginUser.value ? true : false)
+let isLoggedIn = ref(loginUser.value ? true : false)
 
 function updateUserInfo() {
   loginUser.value = JSON.parse(localStorage.getItem('login-user'))
-  showUser.value = true
+  isLoggedIn.value = true
   router.push({ path: '/' });
   alert("登入成功");
 }
@@ -19,7 +19,7 @@ function logout() {
   // use var.value to update reactive vars
   localStorage.removeItem("login-user")
   loginUser.value = JSON.parse(localStorage.getItem('login-user'))
-  showUser.value = false
+  isLoggedIn.value = false
 }
 </script>
 
@@ -30,13 +30,13 @@ function logout() {
     <div class="wrapper">
       <nav>
         <!-- v-if in template can't accept null. give a true/false -->
-        <p v-if="showUser">{{ loginUser.name }} 的電影間</p> 
+        <p v-if="isLoggedIn">{{ loginUser.name }} 的電影間</p> 
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/topic">Topic</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/signup">Sign up</RouterLink>
-        <RouterLink to="/login"  v-if="loginUser===null">Log in</RouterLink>
-        <a v-show="showUser" @click="logout">Logout</a>
+        <RouterLink to="/login" v-if="loginUser===null">Log in</RouterLink>
+        <a v-show="isLoggedIn" @click="logout">Logout</a>
       </nav>
     </div>
   </header>
