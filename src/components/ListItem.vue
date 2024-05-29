@@ -1,17 +1,17 @@
 <template>
-    <router-link :to="{ 
+    <!-- <router-link :to="{ 
         // path: `/title/${item.id}`,
         name: 'Title',
         params: {
             id: item.id
         }
-    }">
+    }"> -->
         <div class="list-item">
             <img :src="item.imgPath" alt="">
             <h2>{{ item.title }}</h2>
             <p>{{ item.year }}</p>
         </div>
-    </router-link>
+    <!-- </router-link> -->
 </template>
 
 <!-- <script>
@@ -33,5 +33,9 @@ const props = defineProps({
     .list-item {
         flex: 0 0 auto;
         margin: 10px;
+        max-width: 20%;
+    }
+    .list-item img {
+        max-width: 100%;
     }
 </style>
