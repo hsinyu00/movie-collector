@@ -57,6 +57,7 @@ function getTopicApiData() {
     .then((values) => {
       for(let j=0;j<values.length;j++){
         topicApiData.value.push({
+          'id': topicTitles[j],
           'title': values[j].data.data.title.titleText.text,
           'imgPath': values[j].data.data.title.primaryImage.url,
           'year': values[j].data.data.title.releaseYear.year
