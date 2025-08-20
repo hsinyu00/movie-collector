@@ -33,3 +33,8 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### Start DB
+```sh
+json-server --watch db.json --port 8000
+```
