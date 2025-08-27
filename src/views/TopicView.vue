@@ -1,11 +1,11 @@
 <template>
   <main>
-    <!-- <div v-for="list,index in topicData" :key="index">
+    <div v-for="list,index in topicData" :key="index">
       <h2 class="list-title">{{ list.category }}</h2>
       <div class="list-wrap">
         <ListItem :item="item" v-for="item, index in list.titles" :key="index"></ListItem>
       </div>
-    </div> -->
+    </div>
 
     <div class="list-wrap">
       <ListItem :item="item" v-for="item, index in topicApiData" :key="index"></ListItem>
@@ -20,19 +20,19 @@ import axios from 'axios'
 import ListItem from '../components/ListItem.vue'
 import topicTitles from '../assets/topicTitles.js'
 
-// let topicData = ref([]) 
+let topicData = ref([]) 
 let topicApiData = ref([]) 
 
-// const getTopicData = async () => {
-//     axios.get("http://localhost:8000/topicData")
-//     .then((res)=>{
-//         // console.log(res);
-//         topicData.value = res.data;
-//     })
-//     .catch((err)=> {
-//         console.log(err);
-//     })
-// }
+function getTopicData() {
+    axios.get("http://localhost:8000/topicData")
+    .then((res)=>{
+        console.log('getTopicData', res);
+        topicData.value = res.data;
+    })
+    .catch((err)=> {
+        console.log(err);
+    })
+}
 
 function getTopicApiData() {
     let promiseArray = [];
@@ -74,6 +74,7 @@ function getTopicApiData() {
 
 
 onMounted(() => {
+  getTopicData()
   getTopicApiData()
 })
 

@@ -35,7 +35,7 @@ function logout() {
         <RouterLink to="/topic">Topic</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/signup">Sign up</RouterLink>
-        <RouterLink to="/login" v-if="loginUser===null">Log in</RouterLink>
+        <RouterLink to="/login" v-show="!isLoggedIn">Log in</RouterLink>
         <a v-show="isLoggedIn" @click="logout">Logout</a>
       </nav>
     </div>
