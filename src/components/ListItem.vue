@@ -30,11 +30,11 @@ const props = defineProps({
 </script>
 
 <style scoped>
-    .list-item {
+    /* .list-item {
         flex: 0 0 auto;
         margin: 10px;
         max-width: 20%;
-    }
+    } */
     .list-item img {
         max-width: 100%;
     }

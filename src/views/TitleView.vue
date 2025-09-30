@@ -1,8 +1,7 @@
 <template>
     <h1>{{ titleObj.title }}</h1>
     <img :src="titleObj.imgPath" >
-    <p>Year {{ titleObj.year }}</p>
-    {{ titleObj.id }}
+    <p>{{ titleObj.year }}</p>
 </template>
 
 <script setup>

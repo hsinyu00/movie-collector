@@ -153,5 +153,11 @@ onMounted(() => {
         display: flex;
         flex-wrap: wrap;
         margin: 0 -10px;
+
+        a {
+          flex: 0 0 auto;
+          margin: 10px;
+          max-width: 20%;
+        }
     }
 </style>
