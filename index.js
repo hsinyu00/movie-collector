@@ -7,14 +7,19 @@ const app = express()
 
 const url = 'https://www.theguardian.com/uk'
 
-axios(url)
+app.get('/', function(req, res){
+    res.json('This is web scraper')
+})
+
+app.get('/results', function(req, res){
+    axios(url)
     .then(response => {
         const html = response.data
         
         // console.log(html)
         const $ = cheerio.load(html)
         const articles = []
-        $('.dcr-1k9pbnb', html).each(function(){
+        $('#container-news li .dcr-kk8k87', html).each(function(){
             const title = $(this).text()
             const url = $(this).find('a').attr('href')
             articles.push({
@@ -22,6 +27,10 @@ axios(url)
                 url
             })
         })
-        console.log(articles)
+        // console.log(articles)
+        res.json(articles)
     }).catch(err=>console.log(err))
+})
+
+
 app.listen(PORT, ()=>console.log(`server running on PORT ${PORT}`))

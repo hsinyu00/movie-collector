@@ -2,7 +2,6 @@
   "name": "movie-collector",
   "version": "0.0.0",
   "private": true,
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -16,6 +15,7 @@
     "cheerio": "^1.1.2",
     "express": "^5.1.0",
     "json-server": "^1.0.0-beta.3",
+    "nodemon": "^3.1.10",
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
